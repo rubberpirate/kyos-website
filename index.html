@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KyOS - Dragon Arch | Powerful. Elegant. Unstoppable.</title>
+    <meta name="description" content="KyOS (Dragon Arch) - A powerful Arch-based Linux distribution featuring Qtile window manager, dual-boot support, and professional security tools.">
+    <meta name="keywords" content="KyOS, Dragon Arch, Linux, Arch Linux, Qtile, Operating System, Security, Penetration Testing">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kyos.org/">
+    <meta property="og:title" content="KyOS - Dragon Arch | Powerful. Elegant. Unstoppable.">
+    <meta property="og:description" content="A powerful Arch-based Linux distribution featuring Qtile window manager, dual-boot support, and professional security tools.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kyos.org/">
+    <meta property="twitter:title" content="KyOS - Dragon Arch | Powerful. Elegant. Unstoppable.">
+    <meta property="twitter:description" content="A powerful Arch-based Linux distribution featuring Qtile window manager, dual-boot support, and professional security tools.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/images/kyos-logo.svg" alt="KyOS Logo" class="logo-img">
+                <span class="logo-text">KyOS</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#features" class="nav-link">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#installer" class="nav-link">Installer</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#desktop" class="nav-link">Desktop</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#download" class="nav-link">Download</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#docs" class="nav-link">Docs</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="gradient-text">KyOS</span>
+                        <span class="subtitle">Dragon Arch</span>
+                    </h1>
+                    <p class="hero-description">
+                        A powerful Arch-based Linux distribution featuring the elegant Qtile window manager,
+                        professional security tools, and an intuitive installation experience.
+                    </p>
+                    <div class="hero-features">
+                        <div class="feature-badge">
+                            <i class="fas fa-bolt"></i>
+                            <span>Lightning Fast</span>
+                        </div>
+                        <div class="feature-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Security Focused</span>
+                        </div>
+                        <div class="feature-badge">
+                            <i class="fas fa-cog"></i>
+                            <span>Highly Customizable</span>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#download" class="btn btn-primary">
+                            <i class="fas fa-download"></i>
+                            Download Now
+                        </a>
+                        <a href="#features" class="btn btn-secondary">
+                            <i class="fas fa-play"></i>
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <span class="btn-close"></span>
+                                <span class="btn-minimize"></span>
+                                <span class="btn-maximize"></span>
+                            </div>
+                            <div class="terminal-title">KyOS Installation</div>
+                        </div>
+                        <div class="terminal-content">
+                            <div class="terminal-line">
+                                <span class="prompt">kyos@live:~$</span>
+                                <span class="command">kyosinstall</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="output">🐉 Welcome to Dragon Arch Installer</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="output success">✓ Auto-detecting system...</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="output">📦 Ready to install KyOS</span>
+                            </div>
+                            <div class="cursor"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-bg-animation"></div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose KyOS?</h2>
+                <p class="section-description">
+                    Built for power users, developers, and security professionals who demand excellence.
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3 class="feature-title">Qtile Window Manager</h3>
+                    <p class="feature-description">
+                        Experience the power of Python-configured tiling window management. 
+                        Highly customizable, keyboard-driven, and incredibly efficient.
+                    </p>
+                    <div class="feature-tags">
+                        <span class="tag">Python Configured</span>
+                        <span class="tag">Tiling WM</span>
+                        <span class="tag">Keyboard Driven</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3 class="feature-title">Intelligent Installer</h3>
+                    <p class="feature-description">
+                        Our smart installer features dual-boot support, manual partitioning, 
+                        and automated setup. No more complex installation headaches.
+                    </p>
+                    <div class="feature-tags">
+                        <span class="tag">Dual Boot</span>
+                        <span class="tag">Auto Install</span>
+                        <span class="tag">TUI Interface</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Security Arsenal</h3>
+                    <p class="feature-description">
+                        Optional BlackArch integration provides access to 2000+ penetration testing 
+                        and security analysis tools right out of the box.
+                    </p>
+                    <div class="feature-tags">
+                        <span class="tag">BlackArch</span>
+                        <span class="tag">Pen Testing</span>
+                        <span class="tag">Security Tools</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="feature-title">Performance Optimized</h3>
+                    <p class="feature-description">
+                        Built on Arch Linux foundation with careful optimizations. 
+                        Fast boot times, minimal resource usage, maximum performance.
+                    </p>
+                    <div class="feature-tags">
+                        <span class="tag">Arch Based</span>
+                        <span class="tag">Optimized</span>
+                        <span class="tag">Fast Boot</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="feature-title">Beautiful Aesthetics</h3>
+                    <p class="feature-description">
+                        Stunning default themes, wallpapers, and UI elements. 
+                        Professional appearance meets functional design.
+                    </p>
+                    <div class="feature-tags">
+                        <span class="tag">Custom Themes</span>
+                        <span class="tag">Modern UI</span>
+                        <span class="tag">Eye Candy</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Community Driven</h3>
+                    <p class="feature-description">
+                        Open source development with active community support. 
+                        Your feedback shapes the future of KyOS.
+                    </p>
+                    <div class="feature-tags">
+                        <span class="tag">Open Source</span>
+                        <span class="tag">Community</span>
+                        <span class="tag">Feedback</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installer Showcase -->
+    <section id="installer" class="installer-showcase">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Effortless Installation</h2>
+                <p class="section-description">
+                    Three installation modes to suit every user, from beginners to experts.
+                </p>
+            </div>
+            <div class="installer-content">
+                <div class="installer-modes">
+                    <div class="mode-card active" data-mode="auto">
+                        <div class="mode-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Automated Install</h3>
+                        <p>One-click installation with smart defaults</p>
+                    </div>
+                    <div class="mode-card" data-mode="dual">
+                        <div class="mode-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3>Dual Boot</h3>
+                        <p>Install alongside existing OS</p>
+                    </div>
+                    <div class="mode-card" data-mode="manual">
+                        <div class="mode-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Manual Setup</h3>
+                        <p>Full control over partitioning</p>
+                    </div>
+                </div>
+                <div class="installer-demo">
+                    <div class="demo-screen active" id="demo-auto">
+                        <div class="installer-window">
+                            <div class="installer-header">
+                                <h4>Automated Installation</h4>
+                            </div>
+                            <div class="installer-steps">
+                                <div class="step completed">
+                                    <i class="fas fa-check"></i>
+                                    <span>Select disk automatically</span>
+                                </div>
+                                <div class="step completed">
+                                    <i class="fas fa-check"></i>
+                                    <span>Configure user account</span>
+                                </div>
+                                <div class="step active">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                    <span>Installing packages...</span>
+                                </div>
+                                <div class="step">
+                                    <i class="fas fa-circle"></i>
+                                    <span>Configure bootloader</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-screen" id="demo-dual">
+                        <div class="installer-window">
+                            <div class="installer-header">
+                                <h4>Dual Boot Setup</h4>
+                            </div>
+                            <div class="partition-view">
+                                <div class="disk-visual">
+                                    <div class="partition windows">Windows 11 (500GB)</div>
+                                    <div class="partition free">Free Space (200GB)</div>
+                                </div>
+                                <p>✓ Sufficient space detected for KyOS installation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-screen" id="demo-manual">
+                        <div class="installer-window">
+                            <div class="installer-header">
+                                <h4>Manual Partitioning</h4>
+                            </div>
+                            <div class="partition-table">
+                                <div class="partition-row">
+                                    <span>/dev/sda1</span>
+                                    <span>EFI System</span>
+                                    <span>512MB</span>
+                                </div>
+                                <div class="partition-row">
+                                    <span>/dev/sda2</span>
+                                    <span>Linux Root</span>
+                                    <span>50GB</span>
+                                </div>
+                                <div class="partition-row">
+                                    <span>/dev/sda3</span>
+                                    <span>Linux Swap</span>
+                                    <span>8GB</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Desktop Showcase -->
+    <section id="desktop" class="desktop-showcase">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Beautiful Desktop Experience</h2>
+                <p class="section-description">
+                    Qtile window manager provides a perfect balance of power and elegance.
+                </p>
+            </div>
+            <div class="desktop-gallery">
+                <div class="gallery-controls">
+                    <button class="gallery-btn active" data-screenshot="desktop">Desktop</button>
+                    <button class="gallery-btn" data-screenshot="terminal">Terminal</button>
+                    <button class="gallery-btn" data-screenshot="coding">Development</button>
+                    <button class="gallery-btn" data-screenshot="apps">Applications</button>
+                </div>
+                <div class="gallery-display">
+                    <div class="screenshot-container">
+                        <img src="assets/images/desktop-main.png" alt="KyOS Desktop" class="screenshot active" id="screenshot-desktop">
+                        <img src="assets/images/desktop-terminal.png" alt="KyOS Terminal" class="screenshot" id="screenshot-terminal">
+                        <img src="assets/images/desktop-coding.png" alt="KyOS Development" class="screenshot" id="screenshot-coding">
+                        <img src="assets/images/desktop-apps.png" alt="KyOS Applications" class="screenshot" id="screenshot-apps">
+                    </div>
+                </div>
+            </div>
+            <div class="desktop-features">
+                <div class="desktop-feature">
+                    <i class="fas fa-keyboard"></i>
+                    <h4>Keyboard Driven</h4>
+                    <p>Navigate your desktop at the speed of thought with powerful keybindings</p>
+                </div>
+                <div class="desktop-feature">
+                    <i class="fas fa-code"></i>
+                    <h4>Python Configured</h4>
+                    <p>Customize every aspect using Python - no cryptic config files</p>
+                </div>
+                <div class="desktop-feature">
+                    <i class="fas fa-layer-group"></i>
+                    <h4>Tiling Management</h4>
+                    <p>Automatic window organization maximizes screen real estate</p>
+                </div>
+                <div class="desktop-feature">
+                    <i class="fas fa-paint-brush"></i>
+                    <h4>Theme Support</h4>
+                    <p>Multiple built-in themes with easy customization options</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get KyOS Today</h2>
+                <p class="section-description">
+                    Choose your preferred installation method and join the Dragon Arch community.
+                </p>
+            </div>
+            <div class="download-cards">
+                <div class="download-card primary">
+                    <div class="card-header">
+                        <h3>KyOS Latest</h3>
+                        <div class="version-info">
+                            <span class="version">v2024.12</span>
+                            <span class="arch">x86_64</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="download-stats">
+                            <div class="stat">
+                                <span class="stat-value">2.8GB</span>
+                                <span class="stat-label">ISO Size</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">SHA256</span>
+                                <span class="stat-label">Verified</span>
+                            </div>
+                        </div>
+                        <div class="included-features">
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Qtile Window Manager</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Smart Installer</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Development Tools</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Media Codecs</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-primary btn-large">
+                            <i class="fas fa-download"></i>
+                            Download ISO
+                        </a>
+                        <a href="#" class="btn btn-outline">
+                            <i class="fas fa-file-signature"></i>
+                            Verify Signature
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="download-card">
+                    <div class="card-header">
+                        <h3>Security Edition</h3>
+                        <div class="version-info">
+                            <span class="version">v2024.12</span>
+                            <span class="arch">x86_64</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="download-stats">
+                            <div class="stat">
+                                <span class="stat-value">4.2GB</span>
+                                <span class="stat-label">ISO Size</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">2000+</span>
+                                <span class="stat-label">Tools</span>
+                            </div>
+                        </div>
+                        <div class="included-features">
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Everything in Standard</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>BlackArch Repository</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Penetration Testing Tools</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Forensics Suite</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-primary btn-large">
+                            <i class="fas fa-download"></i>
+                            Download ISO
+                        </a>
+                        <a href="#" class="btn btn-outline">
+                            <i class="fas fa-file-signature"></i>
+                            Verify Signature
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="installation-help">
+                <h3>Need Help Installing?</h3>
+                <div class="help-links">
+                    <a href="docs/installation-guide.html" class="help-link">
+                        <i class="fas fa-book"></i>
+                        Installation Guide
+                    </a>
+                    <a href="docs/dual-boot.html" class="help-link">
+                        <i class="fas fa-balance-scale"></i>
+                        Dual Boot Setup
+                    </a>
+                    <a href="docs/system-requirements.html" class="help-link">
+                        <i class="fas fa-laptop"></i>
+                        System Requirements
+                    </a>
+                    <a href="docs/troubleshooting.html" class="help-link">
+                        <i class="fas fa-wrench"></i>
+                        Troubleshooting
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section id="docs" class="documentation">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Documentation & Support</h2>
+                <p class="section-description">
+                    Everything you need to get started with KyOS and make the most of your system.
+                </p>
+            </div>
+            <div class="docs-grid">
+                <div class="doc-category">
+                    <h3>Getting Started</h3>
+                    <ul class="doc-links">
+                        <li><a href="docs/quick-start.html">Quick Start Guide</a></li>
+                        <li><a href="docs/first-steps.html">First Steps After Installation</a></li>
+                        <li><a href="docs/package-management.html">Package Management</a></li>
+                        <li><a href="docs/system-configuration.html">System Configuration</a></li>
+                    </ul>
+                </div>
+                <div class="doc-category">
+                    <h3>Desktop Environment</h3>
+                    <ul class="doc-links">
+                        <li><a href="docs/qtile-basics.html">Qtile Basics</a></li>
+                        <li><a href="docs/keybindings.html">Keyboard Shortcuts</a></li>
+                        <li><a href="docs/customization.html">Customizing Your Desktop</a></li>
+                        <li><a href="docs/themes.html">Themes & Appearance</a></li>
+                    </ul>
+                </div>
+                <div class="doc-category">
+                    <h3>Advanced Topics</h3>
+                    <ul class="doc-links">
+                        <li><a href="docs/python-config.html">Python Configuration</a></li>
+                        <li><a href="docs/security-tools.html">Security Tools Guide</a></li>
+                        <li><a href="docs/development-setup.html">Development Environment</a></li>
+                        <li><a href="docs/troubleshooting.html">Troubleshooting</a></li>
+                    </ul>
+                </div>
+                <div class="doc-category">
+                    <h3>Community</h3>
+                    <ul class="doc-links">
+                        <li><a href="https://github.com/rubberpirate/ky-suigetsu">GitHub Repository</a></li>
+                        <li><a href="docs/contributing.html">Contributing Guide</a></li>
+                        <li><a href="docs/bug-reports.html">Bug Reports</a></li>
+                        <li><a href="docs/feature-requests.html">Feature Requests</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/images/kyos-logo.svg" alt="KyOS Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">KyOS</span>
+                    </div>
+                    <p class="footer-description">
+                        Dragon Arch - A powerful, elegant, and unstoppable Linux distribution 
+                        built for developers, security professionals, and power users.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://github.com/rubberpirate/ky-suigetsu" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-reddit"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Download</h4>
+                    <ul class="footer-links">
+                        <li><a href="#download">Latest Release</a></li>
+                        <li><a href="#download">Security Edition</a></li>
+                        <li><a href="docs/installation-guide.html">Installation Guide</a></li>
+                        <li><a href="docs/system-requirements.html">System Requirements</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Documentation</h4>
+                    <ul class="footer-links">
+                        <li><a href="docs/quick-start.html">Quick Start</a></li>
+                        <li><a href="docs/qtile-basics.html">Qtile Guide</a></li>
+                        <li><a href="docs/customization.html">Customization</a></li>
+                        <li><a href="docs/troubleshooting.html">Troubleshooting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/rubberpirate/ky-suigetsu">GitHub</a></li>
+                        <li><a href="docs/contributing.html">Contributing</a></li>
+                        <li><a href="docs/bug-reports.html">Bug Reports</a></li>
+                        <li><a href="docs/feature-requests.html">Feature Requests</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2024 KyOS (Dragon Arch). Open source under MIT License.</p>
+                </div>
+                <div class="footer-links-bottom">
+                    <a href="docs/privacy.html">Privacy Policy</a>
+                    <a href="docs/terms.html">Terms of Use</a>
+                    <a href="docs/license.html">License</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

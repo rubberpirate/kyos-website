@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation Guide - KyOS Documentation</title>
+    <meta name="description" content="Complete installation guide for KyOS (Dragon Arch). Learn how to install KyOS with dual-boot support and advanced partitioning options.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .docs-container {
+            max-width: 900px;
+            margin: 120px auto 0;
+            padding: 0 var(--spacing-lg);
+            line-height: 1.8;
+        }
+        
+        .docs-nav {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .docs-nav h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .docs-nav ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-sm);
+        }
+        
+        .docs-nav a {
+            color: var(--text-secondary);
+            padding: var(--spacing-xs);
+            display: block;
+            border-radius: var(--border-radius);
+            transition: var(--transition-fast);
+        }
+        
+        .docs-nav a:hover,
+        .docs-nav a.current {
+            color: var(--primary-color);
+            background: rgba(0, 255, 0, 0.1);
+        }
+        
+        .docs-content h1 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .docs-content h2 {
+            color: var(--text-primary);
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+        }
+        
+        .docs-content h2::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .docs-content h3 {
+            color: var(--text-primary);
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .docs-content code {
+            background: var(--bg-secondary);
+            color: var(--primary-color);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9em;
+        }
+        
+        .docs-content pre {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            overflow-x: auto;
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .docs-content pre code {
+            background: none;
+            padding: 0;
+            color: var(--text-primary);
+        }
+        
+        .warning-box,
+        .info-box,
+        .tip-box {
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            margin: var(--spacing-lg) 0;
+            border-left: 4px solid;
+        }
+        
+        .warning-box {
+            background: rgba(255, 107, 53, 0.1);
+            border-color: var(--accent-color);
+            color: var(--text-primary);
+        }
+        
+        .info-box {
+            background: rgba(0, 128, 255, 0.1);
+            border-color: var(--secondary-color);
+            color: var(--text-primary);
+        }
+        
+        .tip-box {
+            background: rgba(0, 255, 0, 0.1);
+            border-color: var(--primary-color);
+            color: var(--text-primary);
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: var(--primary-color);
+            color: var(--bg-primary);
+            border-radius: 50%;
+            font-weight: 600;
+            margin-right: var(--spacing-md);
+        }
+        
+        .back-link {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .back-link a {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--text-secondary);
+            transition: var(--transition-fast);
+        }
+        
+        .back-link a:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (simplified for docs) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../assets/images/kyos-logo.svg" alt="KyOS Logo" class="logo-img">
+                <span class="logo-text">KyOS</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#features" class="nav-link">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#download" class="nav-link">Download</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Docs</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="docs-container">
+        <div class="back-link">
+            <a href="../index.html">
+                <i class="fas fa-arrow-left"></i>
+                Back to Main Site
+            </a>
+        </div>
+
+        <div class="docs-nav">
+            <h3>Documentation</h3>
+            <ul>
+                <li><a href="#" class="current">Installation Guide</a></li>
+                <li><a href="quick-start.html">Quick Start</a></li>
+                <li><a href="dual-boot.html">Dual Boot Setup</a></li>
+                <li><a href="system-requirements.html">System Requirements</a></li>
+                <li><a href="qtile-basics.html">Qtile Basics</a></li>
+                <li><a href="customization.html">Customization</a></li>
+                <li><a href="troubleshooting.html">Troubleshooting</a></li>
+                <li><a href="contributing.html">Contributing</a></li>
+            </ul>
+        </div>
+
+        <div class="docs-content">
+            <h1>KyOS Installation Guide</h1>
+            
+            <p>Welcome to the comprehensive installation guide for KyOS (Dragon Arch). This guide will walk you through the entire installation process, from downloading the ISO to your first boot into KyOS.</p>
+
+            <div class="info-box">
+                <strong><i class="fas fa-info-circle"></i> Before You Begin</strong><br>
+                Make sure to read our <a href="system-requirements.html">System Requirements</a> and back up any important data before installation.
+            </div>
+
+            <h2>Step 1: Download KyOS</h2>
+            
+            <p><span class="step-number">1</span>Visit the <a href="../index.html#download">download section</a> and choose your preferred edition:</p>
+            
+            <ul>
+                <li><strong>Standard Edition</strong>: Perfect for most users, includes Qtile and essential tools</li>
+                <li><strong>Security Edition</strong>: Includes BlackArch repository with 2000+ security tools</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong><i class="fas fa-lightbulb"></i> Tip</strong><br>
+                Always verify the SHA256 checksum after downloading to ensure file integrity.
+            </div>
+
+            <h2>Step 2: Create Installation Media</h2>
+            
+            <p><span class="step-number">2</span>Create a bootable USB drive using your preferred tool:</p>
+
+            <h3>Linux</h3>
+            <pre><code># Using dd (replace /dev/sdX with your USB device)
+sudo dd if=kyos-2024.12-x86_64.iso of=/dev/sdX bs=4M status=progress
+sudo sync
+
+# Or using Ventoy (recommended)
+# Install Ventoy on your USB drive and copy the ISO file</code></pre>
+
+            <h3>Windows</h3>
+            <p>Use tools like:</p>
+            <ul>
+                <li><strong>Rufus</strong> (recommended)</li>
+                <li><strong>Ventoy</strong></li>
+                <li><strong>Balena Etcher</strong></li>
+            </ul>
+
+            <h3>macOS</h3>
+            <pre><code># Find your USB device
+diskutil list
+
+# Unmount the USB drive (replace diskN with your device)
+diskutil unmountDisk /dev/diskN
+
+# Write the ISO
+sudo dd if=kyos-2024.12-x86_64.iso of=/dev/rdiskN bs=4m
+
+# Eject the drive
+diskutil eject /dev/diskN</code></pre>
+
+            <h2>Step 3: Boot from USB</h2>
+            
+            <p><span class="step-number">3</span>Configure your system to boot from the USB drive:</p>
+            
+            <ol>
+                <li>Insert the USB drive into your computer</li>
+                <li>Restart your computer</li>
+                <li>Enter BIOS/UEFI settings (usually F2, F12, DEL, or ESC during boot)</li>
+                <li>Set USB drive as the first boot device</li>
+                <li>Save and exit</li>
+            </ol>
+
+            <div class="warning-box">
+                <strong><i class="fas fa-exclamation-triangle"></i> UEFI Systems</strong><br>
+                For dual-boot setups on UEFI systems, make sure Secure Boot is disabled in your BIOS settings.
+            </div>
+
+            <h2>Step 4: Choose Installation Method</h2>
+            
+            <p><span class="step-number">4</span>Once KyOS boots, you'll see the desktop. Open a terminal and run:</p>
+            
+            <pre><code>kyosinstall</code></pre>
+            
+            <p>The installer will present three options:</p>
+
+            <h3>Automated Installation</h3>
+            <p>Perfect for new users or fresh installations:</p>
+            <ul>
+                <li>Uses sensible defaults</li>
+                <li>Fastest installation method</li>
+                <li>Suitable for dedicated KyOS systems</li>
+            </ul>
+
+            <h3>Dual Boot Installation</h3>
+            <p>Install KyOS alongside your existing operating system:</p>
+            <ul>
+                <li>Requires minimum 30GB unallocated space</li>
+                <li>Preserves existing OS</li>
+                <li>Automatic GRUB configuration</li>
+            </ul>
+
+            <h3>Manual Partitioning</h3>
+            <p>Full control for advanced users:</p>
+            <ul>
+                <li>Custom partition layouts</li>
+                <li>Multiple filesystems support</li>
+                <li>LVM and encryption options</li>
+            </ul>
+
+            <h2>Step 5: Configure Installation</h2>
+            
+            <p><span class="step-number">5</span>Follow the guided setup process:</p>
+
+            <h3>System Configuration</h3>
+            <ul>
+                <li><strong>Timezone</strong>: Select your timezone</li>
+                <li><strong>Keyboard Layout</strong>: Choose your keyboard layout</li>
+                <li><strong>Locale</strong>: Set your system language</li>
+            </ul>
+
+            <h3>User Account</h3>
+            <ul>
+                <li><strong>Username</strong>: Your primary user account</li>
+                <li><strong>Password</strong>: Strong password recommended</li>
+                <li><strong>Root Password</strong>: Administrative account password</li>
+                <li><strong>Hostname</strong>: Computer name on the network</li>
+            </ul>
+
+            <h3>Additional Options</h3>
+            <ul>
+                <li><strong>BlackArch Tools</strong>: Install security testing tools</li>
+                <li><strong>NVIDIA Support</strong>: Install NVIDIA drivers if applicable</li>
+                <li><strong>Encryption</strong>: Enable disk encryption (recommended)</li>
+            </ul>
+
+            <h2>Step 6: Installation Process</h2>
+            
+            <p><span class="step-number">6</span>Review your configuration and start the installation:</p>
+            
+            <ol>
+                <li>Verify all settings in the summary screen</li>
+                <li>Confirm installation to begin the process</li>
+                <li>Wait for installation to complete (typically 10-30 minutes)</li>
+                <li>Follow any on-screen prompts</li>
+            </ol>
+
+            <div class="info-box">
+                <strong><i class="fas fa-clock"></i> Installation Time</strong><br>
+                Installation time varies based on your hardware and selected options. The Security Edition takes longer due to additional packages.
+            </div>
+
+            <h2>Step 7: First Boot</h2>
+            
+            <p><span class="step-number">7</span>After installation completes:</p>
+            
+            <ol>
+                <li>Remove the USB drive when prompted</li>
+                <li>Restart your computer</li>
+                <li>Select KyOS from the boot menu (if dual-booting)</li>
+                <li>Log in with your user credentials</li>
+            </ol>
+
+            <h2>Post-Installation Steps</h2>
+            
+            <p>Congratulations! KyOS is now installed. Here are some recommended next steps:</p>
+
+            <h3>System Updates</h3>
+            <pre><code># Update the system
+sudo pacman -Syu
+
+# Update dotfiles (if applicable)
+cd ~/.config && git pull</code></pre>
+
+            <h3>Essential Applications</h3>
+            <pre><code># Install additional software
+sudo pacman -S firefox vlc git code
+
+# Enable AUR helper (if not installed)
+sudo pacman -S yay</code></pre>
+
+            <h3>Qtile Configuration</h3>
+            <p>Customize your desktop environment:</p>
+            <ul>
+                <li>Learn basic <a href="qtile-basics.html">Qtile keybindings</a></li>
+                <li>Explore <a href="customization.html">customization options</a></li>
+                <li>Check out our <a href="../index.html#desktop">desktop showcase</a></li>
+            </ul>
+
+            <h2>Troubleshooting</h2>
+            
+            <p>If you encounter issues during installation:</p>
+            
+            <ul>
+                <li>Check our <a href="troubleshooting.html">troubleshooting guide</a></li>
+                <li>Verify your <a href="system-requirements.html">system meets requirements</a></li>
+                <li>Try the installation in a virtual machine first</li>
+                <li>Ask for help in our community forums</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong><i class="fas fa-question-circle"></i> Need Help?</strong><br>
+                Join our community on GitHub for support, tips, and discussions about KyOS.
+            </div>
+
+            <h2>Next Steps</h2>
+            
+            <p>Now that KyOS is installed, explore these guides:</p>
+            
+            <ul>
+                <li><a href="quick-start.html">Quick Start Guide</a> - Essential first steps</li>
+                <li><a href="qtile-basics.html">Qtile Basics</a> - Master your window manager</li>
+                <li><a href="customization.html">Customization Guide</a> - Make KyOS your own</li>
+                <li><a href="../index.html#features">Feature Overview</a> - Discover what KyOS offers</li>
+            </ul>
+
+            <p>Welcome to the KyOS community! 🐉</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
