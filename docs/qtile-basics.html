@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qtile Basics - KyOS Documentation</title>
+    <meta name="description" content="Learn the fundamentals of Qtile window manager in KyOS (Dragon Arch).">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../assets/images/kyos.png" alt="KyOS Logo" class="logo-img">
+                <span class="logo-text">KyOS</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#features" class="nav-link">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#download" class="nav-link">Download</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#docs" class="nav-link">Docs</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Documentation Header -->
+    <section class="docs-header">
+        <div class="container">
+            <div class="docs-breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="separator">></span>
+                <a href="../index.html#docs">Documentation</a>
+                <span class="separator">></span>
+                <span class="current">Qtile Basics</span>
+            </div>
+            <h1 class="docs-title">Qtile Basics</h1>
+            <p class="docs-subtitle">
+                Master the powerful Python-configured tiling window manager
+            </p>
+        </div>
+    </section>
+
+    <!-- Documentation Content -->
+    <section class="docs-content">
+        <div class="container">
+            <div class="docs-layout">
+                <!-- Table of Contents -->
+                <aside class="docs-sidebar">
+                    <div class="toc">
+                        <h3>Table of Contents</h3>
+                        <ul>
+                            <li><a href="#what-is-qtile">What is Qtile?</a></li>
+                            <li><a href="#layouts">Layouts</a></li>
+                            <li><a href="#workspaces">Workspaces</a></li>
+                            <li><a href="#keybindings">Complete Keybindings</a></li>
+                            <li><a href="#configuration">Configuration</a></li>
+                            <li><a href="#widgets">Status Bar Widgets</a></li>
+                            <li><a href="#troubleshooting">Troubleshooting</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="docs-main">
+                    <article class="docs-article">
+                        <!-- What is Qtile -->
+                        <section id="what-is-qtile" class="docs-section">
+                            <h2>What is Qtile?</h2>
+                            <p>
+                                Qtile is a powerful, Python-based tiling window manager that automatically 
+                                organizes your windows for maximum efficiency. Unlike traditional desktop 
+                                environments, Qtile focuses on keyboard-driven workflow and intelligent 
+                                window management.
+                            </p>
+
+                            <h3>Key Benefits</h3>
+                            <div class="benefits-grid">
+                                <div class="benefit-card">
+                                    <h4>🐍 Python Configuration</h4>
+                                    <p>Full configuration in Python - no cryptic config files to learn.</p>
+                                </div>
+                                <div class="benefit-card">
+                                    <h4>⚡ Lightning Fast</h4>
+                                    <p>Keyboard-driven workflow eliminates mouse dependency.</p>
+                                </div>
+                                <div class="benefit-card">
+                                    <h4>🔧 Highly Customizable</h4>
+                                    <p>Every aspect can be customized to your exact preferences.</p>
+                                </div>
+                                <div class="benefit-card">
+                                    <h4>📐 Automatic Tiling</h4>
+                                    <p>Windows arrange themselves intelligently to maximize screen space.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Layouts -->
+                        <section id="layouts" class="docs-section">
+                            <h2>Layouts</h2>
+                            <p>
+                                Qtile offers several layout algorithms that determine how windows 
+                                are arranged on screen. You can switch between layouts instantly.
+                            </p>
+
+                            <h3>Available Layouts</h3>
+                            <div class="layout-grid">
+                                <div class="layout-card">
+                                    <h4>📊 MonadTall (Default)</h4>
+                                    <p>One main window on the left, others stacked on the right. Perfect for coding.</p>
+                                    <div class="layout-demo">
+                                        <div class="window main">Main</div>
+                                        <div class="window-stack">
+                                            <div class="window">Stack 1</div>
+                                            <div class="window">Stack 2</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="layout-card">
+                                    <h4>📈 Max</h4>
+                                    <p>Each window takes the full screen. Switch between them with keybindings.</p>
+                                </div>
+
+                                <div class="layout-card">
+                                    <h4>🔲 Tile</h4>
+                                    <p>Windows arranged in a grid pattern. Great for monitoring multiple applications.</p>
+                                </div>
+
+                                <div class="layout-card">
+                                    <h4>🔄 Floating</h4>
+                                    <p>Traditional window behavior - drag and resize windows manually.</p>
+                                </div>
+                            </div>
+
+                            <h3>Layout Controls</h3>
+                            <div class="control-list">
+                                <div class="control-item">
+                                    <span class="keys">Super + Tab</span>
+                                    <span class="description">Switch to next layout</span>
+                                </div>
+                                <div class="control-item">
+                                    <span class="keys">Super + Shift + Tab</span>
+                                    <span class="description">Switch to previous layout</span>
+                                </div>
+                                <div class="control-item">
+                                    <span class="keys">Super + Space</span>
+                                    <span class="description">Toggle current window floating</span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Workspaces -->
+                        <section id="workspaces" class="docs-section">
+                            <h2>Workspaces</h2>
+                            <p>
+                                Workspaces (also called groups) are virtual desktops that help you 
+                                organize your applications. KyOS comes with 9 workspaces by default.
+                            </p>
+
+                            <h3>Workspace Navigation</h3>
+                            <div class="workspace-controls">
+                                <div class="control-group">
+                                    <h4>Switch Workspaces</h4>
+                                    <div class="control-item">
+                                        <span class="keys">Super + [1-9]</span>
+                                        <span class="description">Go to workspace 1-9</span>
+                                    </div>
+                                    <div class="control-item">
+                                        <span class="keys">Super + Period</span>
+                                        <span class="description">Next workspace</span>
+                                    </div>
+                                    <div class="control-item">
+                                        <span class="keys">Super + Comma</span>
+                                        <span class="description">Previous workspace</span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <h4>Move Windows</h4>
+                                    <div class="control-item">
+                                        <span class="keys">Super + Shift + [1-9]</span>
+                                        <span class="description">Move window to workspace 1-9</span>
+                                    </div>
+                                    <div class="control-item">
+                                        <span class="keys">Super + Shift + Period</span>
+                                        <span class="description">Move window to next workspace</span>
+                                    </div>
+                                    <div class="control-item">
+                                        <span class="keys">Super + Shift + Comma</span>
+                                        <span class="description">Move window to previous workspace</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tip-box">
+                                <div class="tip-header">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>Organization Tip</span>
+                                </div>
+                                <p>
+                                    Consider dedicating workspaces to specific tasks: 
+                                    1=Terminal, 2=Browser, 3=Code, 4=Communication, etc.
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- Complete Keybindings -->
+                        <section id="keybindings" class="docs-section">
+                            <h2>Complete Keybindings Reference</h2>
+                            <p>
+                                Here's the complete list of keyboard shortcuts available in KyOS Qtile:
+                            </p>
+
+                            <div class="keybinding-sections">
+                                <div class="keybinding-section">
+                                    <h3>🚀 Applications</h3>
+                                    <div class="keybinding-table">
+                                        <div class="keybinding-row">
+                                            <span class="keys">Super + Return</span>
+                                            <span class="description">Terminal (Alacritty)</span>
+                                        </div>
+                                        <div class="keybinding-row">
+                                            <span class="keys">Super + D</span>
+                                            <span class="description">Application Launcher (Rofi)</span>
+                                        </div>
+                                        <div class="keybinding-row">
+                                            <span class="keys">Super + B</span>
+                                            <span class="description">Web Browser (Firefox)</span>
+                                        </div>
+                                        <div class="keybinding-row">
+                                            <span class="keys">Super + E</span>
+                                            <span class="description">File Manager (Thunar)</span>
+                                        </div>
+                                        <div class="keybinding-row">
+                                            <span class="keys">Super + C</span>
+                                            <span class="description">Code Editor (VS Code)</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="keybinding-section">
+                                    <h3>🪟 Window Management</h3>
+                                    <div class="keybinding-table">
+                                        <div class="keybinding-row">
+                                            <span class="keys">Super + J/K</span>
+                                            <span class="description">Focus next/previous window</span>
+                                        </div>
+                                        <div class="keybinding-row">
+                                            <span class="keys">Super + Shift + J/K</span>
+                                            <span class="description">Move window down/up</span>
+                                        </div>
+                                        <div class="keybinding-row">
+                                            <span class="keys">Super + H/L</span>
+                                            <span class="description">Shrink/grow main window</span>
+                                        </div>
+                                        <div class="keybinding-row">
+                                            <span class="keys">Super + W</span>
+                                            <span class="description">Close window</span>
+                                        </div>
+                                        <div class="keybinding-row">
+                                            <span class="keys">Super + F</span>
+                                            <span class="description">Toggle fullscreen</span>
+                                        </div>
+                                        <div class="keybinding-row">
+                                            <span class="keys">Super + M</span>
+                                            <span class="description">Maximize window</span>
+                                        </div>
+                                        <div class="keybinding-row">
+                                            <span class="keys">Super + N</span>
+                                            <span class="description">Minimize window</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="keybinding-section">
+                                    <h3>⚙️ System Controls</h3>
+                                    <div class="keybinding-table">
+                                        <div class="keybinding-row">
+                                            <span class="keys">Super + Ctrl + R</span>
+                                            <span class="description">Restart Qtile</span>
+                                        </div>
+                                        <div class="keybinding-row">
+                                            <span class="keys">Super + Ctrl + Q</span>
+                                            <span class="description">Logout</span>
+                                        </div>
+                                        <div class="keybinding-row">
+                                            <span class="keys">Super + L</span>
+                                            <span class="description">Lock screen</span>
+                                        </div>
+                                        <div class="keybinding-row">
+                                            <span class="keys">Print</span>
+                                            <span class="description">Screenshot</span>
+                                        </div>
+                                        <div class="keybinding-row">
+                                            <span class="keys">Super + Print</span>
+                                            <span class="description">Screenshot selection</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="keybinding-section">
+                                    <h3>🔊 Audio Controls</h3>
+                                    <div class="keybinding-table">
+                                        <div class="keybinding-row">
+                                            <span class="keys">XF86AudioRaiseVolume</span>
+                                            <span class="description">Volume up</span>
+                                        </div>
+                                        <div class="keybinding-row">
+                                            <span class="keys">XF86AudioLowerVolume</span>
+                                            <span class="description">Volume down</span>
+                                        </div>
+                                        <div class="keybinding-row">
+                                            <span class="keys">XF86AudioMute</span>
+                                            <span class="description">Toggle mute</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Configuration -->
+                        <section id="configuration" class="docs-section">
+                            <h2>Configuration</h2>
+                            <p>
+                                Qtile's configuration is written in Python, making it incredibly 
+                                powerful and flexible. The main config file is located at 
+                                <code>~/.config/qtile/config.py</code>.
+                            </p>
+
+                            <h3>Configuration Structure</h3>
+                            <div class="config-structure">
+                                <div class="config-section">
+                                    <h4>📋 Basic Structure</h4>
+                                    <div class="code-block">
+                                        <pre><code># ~/.config/qtile/config.py
+from libqtile import bar, layout, widget
+from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.lazy import lazy
+
+# Modifier key (Super/Windows key)
+mod = "mod4"
+
+# Define keybindings
+keys = [
+    Key([mod], "Return", lazy.spawn("alacritty")),
+    Key([mod], "w", lazy.window.kill()),
+    # ... more keybindings
+]
+
+# Define workspaces
+groups = [Group(i) for i in "123456789"]
+
+# Define layouts
+layouts = [
+    layout.MonadTall(),
+    layout.Max(),
+    layout.Floating(),
+]</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3>Common Customizations</h3>
+                            <div class="customization-examples">
+                                <div class="custom-example">
+                                    <h4>Change Terminal</h4>
+                                    <div class="code-block">
+                                        <pre><code># Replace alacritty with your preferred terminal
+Key([mod], "Return", lazy.spawn("kitty")),</code></pre>
+                                    </div>
+                                </div>
+
+                                <div class="custom-example">
+                                    <h4>Add Custom Keybinding</h4>
+                                    <div class="code-block">
+                                        <pre><code># Add to keys list
+Key([mod], "v", lazy.spawn("code")),  # VS Code
+Key([mod], "m", lazy.spawn("spotify")),  # Spotify</code></pre>
+                                    </div>
+                                </div>
+
+                                <div class="custom-example">
+                                    <h4>Customize Colors</h4>
+                                    <div class="code-block">
+                                        <pre><code># Define color scheme
+colors = {
+    "bg": "#1a1b26",
+    "fg": "#a9b1d6", 
+    "accent": "#7aa2f7",
+    "urgent": "#f7768e"
+}</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="warning-box">
+                                <div class="warning-header">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>Important</span>
+                                </div>
+                                <p>
+                                    After modifying the config, restart Qtile with 
+                                    <code>Super + Ctrl + R</code> to apply changes.
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- Status Bar Widgets -->
+                        <section id="widgets" class="docs-section">
+                            <h2>Status Bar Widgets</h2>
+                            <p>
+                                The status bar shows important system information through widgets. 
+                                KyOS includes a carefully curated set of useful widgets.
+                            </p>
+
+                            <h3>Default Widgets</h3>
+                            <div class="widget-grid">
+                                <div class="widget-card">
+                                    <h4>🏷️ Group Box</h4>
+                                    <p>Shows workspace indicators and highlights the active workspace.</p>
+                                </div>
+                                <div class="widget-card">
+                                    <h4>🪟 Window Name</h4>
+                                    <p>Displays the title of the currently focused window.</p>
+                                </div>
+                                <div class="widget-card">
+                                    <h4>📊 System Stats</h4>
+                                    <p>CPU usage, memory usage, and system load information.</p>
+                                </div>
+                                <div class="widget-card">
+                                    <h4>🔊 Volume</h4>
+                                    <p>Current audio volume level with mute indicator.</p>
+                                </div>
+                                <div class="widget-card">
+                                    <h4>🌐 Network</h4>
+                                    <p>Network connectivity status and data usage.</p>
+                                </div>
+                                <div class="widget-card">
+                                    <h4>🔋 Battery</h4>
+                                    <p>Battery percentage and charging status (laptops).</p>
+                                </div>
+                                <div class="widget-card">
+                                    <h4>🕐 Clock</h4>
+                                    <p>Current time and date with customizable format.</p>
+                                </div>
+                                <div class="widget-card">
+                                    <h4>💻 System Tray</h4>
+                                    <p>Application icons and system notifications.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Troubleshooting -->
+                        <section id="troubleshooting" class="docs-section">
+                            <h2>Troubleshooting</h2>
+                            <p>
+                                Common issues and solutions when working with Qtile.
+                            </p>
+
+                            <div class="troubleshoot-list">
+                                <div class="troubleshoot-item">
+                                    <h4>❓ Qtile won't start</h4>
+                                    <p><strong>Solution:</strong> Check for syntax errors in config.py:</p>
+                                    <div class="code-block">
+                                        <pre><code>python -m py_compile ~/.config/qtile/config.py</code></pre>
+                                    </div>
+                                </div>
+
+                                <div class="troubleshoot-item">
+                                    <h4>❓ Keybindings not working</h4>
+                                    <p><strong>Solution:</strong> Ensure mod key is correctly set and restart Qtile.</p>
+                                </div>
+
+                                <div class="troubleshoot-item">
+                                    <h4>❓ Applications won't launch</h4>
+                                    <p><strong>Solution:</strong> Check if the application is installed and in PATH.</p>
+                                </div>
+
+                                <div class="troubleshoot-item">
+                                    <h4>❓ Status bar missing</h4>
+                                    <p><strong>Solution:</strong> Verify screen configuration in config.py includes a bar.</p>
+                                </div>
+                            </div>
+
+                            <div class="help-box">
+                                <div class="help-header">
+                                    <i class="fas fa-question-circle"></i>
+                                    <span>Need More Help?</span>
+                                </div>
+                                <p>
+                                    Check the <a href="troubleshooting.html">comprehensive troubleshooting guide</a> 
+                                    or visit the official Qtile documentation for advanced topics.
+                                </p>
+                            </div>
+                        </section>
+                    </article>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../assets/images/kyos.png" alt="KyOS Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">KyOS</span>
+                    </div>
+                    <p class="footer-description">
+                        Dragon Arch - A powerful, elegant, and unstoppable Linux distribution.
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2024 KyOS (Dragon Arch). Open source under MIT License.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

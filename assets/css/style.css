@@ -142,8 +142,8 @@ a:hover {
 }
 
 .logo-img {
-    width: 40px;
     height: 40px;
+    width: auto;
 }
 
 .nav-menu {
@@ -703,7 +703,8 @@ section {
     border-radius: var(--border-radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-xl);
-    height: 500px;
+    width: 100%;
+    aspect-ratio: 16/9;
 }
 
 .screenshot-container {
@@ -718,7 +719,8 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
     opacity: 0;
     transition: var(--transition-normal);
 }
@@ -963,8 +965,8 @@ section {
 }
 
 .footer-logo-img {
-    width: 32px;
     height: 32px;
+    width: auto;
 }
 
 .footer-logo-text {
@@ -1161,6 +1163,16 @@ section {
     .desktop-features {
         grid-template-columns: 1fr;
     }
+    
+    .gallery-display {
+        aspect-ratio: 16/9;
+        max-height: 300px;
+    }
+    
+    .gallery-controls {
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+    }
 }
 
 @media (max-width: 480px) {
@@ -1180,5 +1192,17 @@ section {
     
     .hero-features {
         justify-content: center;
+    }
+    
+    .logo-img {
+        height: 32px;
+    }
+    
+    .footer-logo-img {
+        height: 24px;
+    }
+    
+    .gallery-display {
+        max-height: 200px;
     }
 }

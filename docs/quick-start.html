@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Start Guide - KyOS Documentation</title>
+    <meta name="description" content="Quick start guide for KyOS (Dragon Arch) - Get up and running with KyOS in minutes.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../assets/images/kyos.png" alt="KyOS Logo" class="logo-img">
+                <span class="logo-text">KyOS</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#features" class="nav-link">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#download" class="nav-link">Download</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#docs" class="nav-link">Docs</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Documentation Header -->
+    <section class="docs-header">
+        <div class="container">
+            <div class="docs-breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="separator">></span>
+                <a href="../index.html#docs">Documentation</a>
+                <span class="separator">></span>
+                <span class="current">Quick Start Guide</span>
+            </div>
+            <h1 class="docs-title">Quick Start Guide</h1>
+            <p class="docs-subtitle">
+                Get up and running with KyOS in minutes
+            </p>
+        </div>
+    </section>
+
+    <!-- Documentation Content -->
+    <section class="docs-content">
+        <div class="container">
+            <div class="docs-layout">
+                <!-- Table of Contents -->
+                <aside class="docs-sidebar">
+                    <div class="toc">
+                        <h3>Table of Contents</h3>
+                        <ul>
+                            <li><a href="#first-boot">First Boot</a></li>
+                            <li><a href="#desktop-overview">Desktop Overview</a></li>
+                            <li><a href="#basic-navigation">Basic Navigation</a></li>
+                            <li><a href="#essential-keybindings">Essential Keybindings</a></li>
+                            <li><a href="#package-management">Package Management</a></li>
+                            <li><a href="#customization">Basic Customization</a></li>
+                            <li><a href="#next-steps">Next Steps</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="docs-main">
+                    <article class="docs-article">
+                        <!-- First Boot -->
+                        <section id="first-boot" class="docs-section">
+                            <h2>First Boot</h2>
+                            <p>
+                                Congratulations on installing KyOS! After your first boot, you'll be greeted 
+                                by the beautiful Qtile desktop environment with a clean, minimal interface.
+                            </p>
+                            
+                            <h3>Login Process</h3>
+                            <ol>
+                                <li>Select "KyOS" from the boot menu (if dual booting)</li>
+                                <li>Enter your username and password at the login screen</li>
+                                <li>Choose "Qtile" as your session (it should be the default)</li>
+                                <li>Press Enter to log in</li>
+                            </ol>
+
+                            <div class="info-box">
+                                <div class="info-header">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>First Time Tip</span>
+                                </div>
+                                <p>
+                                    If you see a black screen with just a status bar at the bottom, 
+                                    that's normal! Qtile starts with a clean workspace. Press 
+                                    <code>Super + Return</code> to open a terminal.
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- Desktop Overview -->
+                        <section id="desktop-overview" class="docs-section">
+                            <h2>Desktop Overview</h2>
+                            <p>
+                                KyOS uses Qtile, a powerful tiling window manager that organizes 
+                                your windows automatically for maximum efficiency.
+                            </p>
+
+                            <h3>Key Components</h3>
+                            <div class="component-grid">
+                                <div class="component-card">
+                                    <h4>🖥️ Workspaces</h4>
+                                    <p>Multiple virtual desktops for organizing your work. Switch between them with Super + [1-9].</p>
+                                </div>
+                                <div class="component-card">
+                                    <h4>📊 Status Bar</h4>
+                                    <p>Shows workspace indicators, window information, system stats, and clock.</p>
+                                </div>
+                                <div class="component-card">
+                                    <h4>🪟 Tiling Layout</h4>
+                                    <p>Windows automatically arrange themselves for optimal screen usage.</p>
+                                </div>
+                                <div class="component-card">
+                                    <h4>🎨 Dragon Theme</h4>
+                                    <p>Beautiful dark theme with dragon-inspired color accents.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Basic Navigation -->
+                        <section id="basic-navigation" class="docs-section">
+                            <h2>Basic Navigation</h2>
+                            <p>
+                                Qtile is primarily keyboard-driven, making it incredibly fast once 
+                                you learn the basic shortcuts.
+                            </p>
+
+                            <h3>Window Management</h3>
+                            <ul>
+                                <li><strong>Focus Windows:</strong> Use <code>Super + J/K</code> or <code>Super + Arrow Keys</code></li>
+                                <li><strong>Move Windows:</strong> Use <code>Super + Shift + J/K</code></li>
+                                <li><strong>Resize Windows:</strong> Use <code>Super + H/L</code></li>
+                                <li><strong>Close Window:</strong> Use <code>Super + W</code></li>
+                            </ul>
+
+                            <h3>Workspace Navigation</h3>
+                            <ul>
+                                <li><strong>Switch Workspace:</strong> <code>Super + [1-9]</code></li>
+                                <li><strong>Move Window to Workspace:</strong> <code>Super + Shift + [1-9]</code></li>
+                                <li><strong>Next/Previous Workspace:</strong> <code>Super + Tab</code></li>
+                            </ul>
+                        </section>
+
+                        <!-- Essential Keybindings -->
+                        <section id="essential-keybindings" class="docs-section">
+                            <h2>Essential Keybindings</h2>
+                            <p>
+                                Here are the most important keyboard shortcuts to get you started:
+                            </p>
+
+                            <div class="keybinding-grid">
+                                <div class="keybinding-category">
+                                    <h4>🚀 Launching Applications</h4>
+                                    <div class="keybinding-list">
+                                        <div class="keybinding">
+                                            <span class="keys">Super + Return</span>
+                                            <span class="description">Open Terminal</span>
+                                        </div>
+                                        <div class="keybinding">
+                                            <span class="keys">Super + D</span>
+                                            <span class="description">Application Launcher</span>
+                                        </div>
+                                        <div class="keybinding">
+                                            <span class="keys">Super + B</span>
+                                            <span class="description">Open Browser</span>
+                                        </div>
+                                        <div class="keybinding">
+                                            <span class="keys">Super + E</span>
+                                            <span class="description">File Manager</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="keybinding-category">
+                                    <h4>🪟 Window Control</h4>
+                                    <div class="keybinding-list">
+                                        <div class="keybinding">
+                                            <span class="keys">Super + W</span>
+                                            <span class="description">Close Window</span>
+                                        </div>
+                                        <div class="keybinding">
+                                            <span class="keys">Super + F</span>
+                                            <span class="description">Toggle Fullscreen</span>
+                                        </div>
+                                        <div class="keybinding">
+                                            <span class="keys">Super + Space</span>
+                                            <span class="description">Toggle Floating</span>
+                                        </div>
+                                        <div class="keybinding">
+                                            <span class="keys">Super + M</span>
+                                            <span class="description">Maximize Window</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="keybinding-category">
+                                    <h4>⚙️ System Controls</h4>
+                                    <div class="keybinding-list">
+                                        <div class="keybinding">
+                                            <span class="keys">Super + Ctrl + R</span>
+                                            <span class="description">Restart Qtile</span>
+                                        </div>
+                                        <div class="keybinding">
+                                            <span class="keys">Super + Ctrl + Q</span>
+                                            <span class="description">Logout</span>
+                                        </div>
+                                        <div class="keybinding">
+                                            <span class="keys">Super + L</span>
+                                            <span class="description">Lock Screen</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Package Management -->
+                        <section id="package-management" class="docs-section">
+                            <h2>Package Management</h2>
+                            <p>
+                                KyOS uses pacman, the powerful Arch Linux package manager, 
+                                along with access to the AUR (Arch User Repository).
+                            </p>
+
+                            <h3>Basic Package Commands</h3>
+                            <div class="command-grid">
+                                <div class="command-item">
+                                    <h4>Update System</h4>
+                                    <div class="code-block">
+                                        <pre><code>sudo pacman -Syu</code></pre>
+                                    </div>
+                                    <p>Updates all installed packages to their latest versions.</p>
+                                </div>
+
+                                <div class="command-item">
+                                    <h4>Install Package</h4>
+                                    <div class="code-block">
+                                        <pre><code>sudo pacman -S package-name</code></pre>
+                                    </div>
+                                    <p>Installs a package from the official repositories.</p>
+                                </div>
+
+                                <div class="command-item">
+                                    <h4>Search Packages</h4>
+                                    <div class="code-block">
+                                        <pre><code>pacman -Ss search-term</code></pre>
+                                    </div>
+                                    <p>Searches for packages containing the search term.</p>
+                                </div>
+
+                                <div class="command-item">
+                                    <h4>Remove Package</h4>
+                                    <div class="code-block">
+                                        <pre><code>sudo pacman -R package-name</code></pre>
+                                    </div>
+                                    <p>Removes a package from your system.</p>
+                                </div>
+                            </div>
+
+                            <div class="tip-box">
+                                <div class="tip-header">
+                                    <i class="fas fa-star"></i>
+                                    <span>Pro Tip</span>
+                                </div>
+                                <p>
+                                    KyOS includes <code>yay</code> for easy AUR access. Try 
+                                    <code>yay -S package-name</code> to install AUR packages!
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- Basic Customization -->
+                        <section id="customization" class="docs-section">
+                            <h2>Basic Customization</h2>
+                            <p>
+                                One of KyOS's strengths is its customizability. Here are some 
+                                quick ways to make the system your own.
+                            </p>
+
+                            <h3>Qtile Configuration</h3>
+                            <p>
+                                Qtile is configured using Python, making it incredibly flexible:
+                            </p>
+                            <div class="code-block">
+                                <pre><code># Edit Qtile configuration
+nano ~/.config/qtile/config.py
+
+# Restart Qtile to apply changes  
+Super + Ctrl + R</code></pre>
+                            </div>
+
+                            <h3>Wallpaper</h3>
+                            <div class="code-block">
+                                <pre><code># Set wallpaper using feh
+feh --bg-scale /path/to/your/wallpaper.jpg</code></pre>
+                            </div>
+
+                            <h3>Terminal Colors</h3>
+                            <p>Customize your terminal appearance:</p>
+                            <div class="code-block">
+                                <pre><code># Edit alacritty config
+nano ~/.config/alacritty/alacritty.yml</code></pre>
+                            </div>
+                        </section>
+
+                        <!-- Next Steps -->
+                        <section id="next-steps" class="docs-section">
+                            <h2>Next Steps</h2>
+                            <p>
+                                Now that you're familiar with the basics, here's what to explore next:
+                            </p>
+
+                            <div class="next-steps-grid">
+                                <div class="next-step-card">
+                                    <h4>🔧 Advanced Configuration</h4>
+                                    <p>Deep dive into Qtile configuration and create your perfect setup.</p>
+                                    <a href="qtile-basics.html" class="step-link">Learn More →</a>
+                                </div>
+
+                                <div class="next-step-card">
+                                    <h4>🛠️ Development Setup</h4>
+                                    <p>Set up your development environment with your favorite tools.</p>
+                                    <a href="development-setup.html" class="step-link">Learn More →</a>
+                                </div>
+
+                                <div class="next-step-card">
+                                    <h4>🎨 Themes & Appearance</h4>
+                                    <p>Customize the look and feel of your desktop environment.</p>
+                                    <a href="themes.html" class="step-link">Learn More →</a>
+                                </div>
+
+                                <div class="next-step-card">
+                                    <h4>🔒 Security Tools</h4>
+                                    <p>Explore the optional BlackArch security tool collection.</p>
+                                    <a href="security-tools.html" class="step-link">Learn More →</a>
+                                </div>
+                            </div>
+
+                            <div class="success-box">
+                                <div class="success-header">
+                                    <i class="fas fa-dragon"></i>
+                                    <span>Welcome to the Dragon Arch Family!</span>
+                                </div>
+                                <p>
+                                    You're now ready to unleash the full power of KyOS. 
+                                    Join our community and share your dragon-powered adventures!
+                                </p>
+                            </div>
+                        </section>
+                    </article>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../assets/images/kyos.png" alt="KyOS Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">KyOS</span>
+                    </div>
+                    <p class="footer-description">
+                        Dragon Arch - A powerful, elegant, and unstoppable Linux distribution.
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2024 KyOS (Dragon Arch). Open source under MIT License.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
