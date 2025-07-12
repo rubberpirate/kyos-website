@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keybindings Reference - KyOS Documentation</title>
+    <meta name="description" content="Complete reference for all KyOS keybindings. Master keyboard shortcuts for efficient workflow in Qtile window manager.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/images/kyos.png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../assets/images/kyos.png" alt="KyOS Logo" class="logo-img">
+                <span class="logo-text">KyOS</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#features" class="nav-link">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#download" class="nav-link">Download</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#docs" class="nav-link">Docs</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Documentation Content -->
+    <section class="docs-content">
+        <div class="container">
+            <div class="docs-layout">
+                <aside class="docs-sidebar">
+                    <h3>Categories</h3>
+                    <nav class="docs-nav">
+                        <a href="#window-management" class="docs-nav-link">Window Management</a>
+                        <a href="#navigation" class="docs-nav-link">Navigation</a>
+                        <a href="#groups" class="docs-nav-link">Groups/Workspaces</a>
+                        <a href="#layouts" class="docs-nav-link">Layouts</a>
+                        <a href="#applications" class="docs-nav-link">Applications</a>
+                        <a href="#system" class="docs-nav-link">System Controls</a>
+                        <a href="#media" class="docs-nav-link">Media Controls</a>
+                        <a href="#screenshots" class="docs-nav-link">Screenshots</a>
+                        <a href="#scratchpads" class="docs-nav-link">Scratchpads</a>
+                        <a href="#mouse" class="docs-nav-link">Mouse Actions</a>
+                    </nav>
+
+                    <div class="docs-quick-links">
+                        <h4>Quick Actions</h4>
+                        <div class="quick-search">
+                            <input type="text" id="keybinding-search" placeholder="Search keybindings...">
+                        </div>
+                        <a href="qtile-mastery.html">Qtile Mastery Guide</a>
+                        <a href="complete-guide.html">Complete Guide</a>
+                    </div>
+                </aside>
+                
+                <main class="docs-main">
+                    <div class="docs-header">
+                        <h1>Keybindings Reference</h1>
+                        <p class="docs-subtitle">Complete keyboard shortcuts for KyOS Qtile</p>
+                    </div>
+
+                    <div class="docs-content-body">
+                        <div class="alert alert-info">
+                            <i class="fas fa-keyboard"></i>
+                            <div>
+                                <strong>Modifier Key:</strong> In KyOS, <kbd>Super</kbd> (Windows key) is the main modifier. 
+                                All window management shortcuts use <kbd>Super</kbd> as the primary modifier.
+                            </div>
+                        </div>
+
+                        <section id="window-management" class="docs-section">
+                            <h2><i class="fas fa-window-restore"></i> Window Management</h2>
+                            
+                            <div class="keybinding-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Keybinding</th>
+                                            <th>Action</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><kbd>Super + q</kbd></td>
+                                            <td>Close Window</td>
+                                            <td>Close the currently focused window</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Shift + q</kbd></td>
+                                            <td>Force Close</td>
+                                            <td>Force close unresponsive window</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + f</kbd></td>
+                                            <td>Fullscreen</td>
+                                            <td>Toggle fullscreen mode for current window</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Shift + f</kbd></td>
+                                            <td>Toggle Floating</td>
+                                            <td>Toggle between tiling and floating mode</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + m</kbd></td>
+                                            <td>Maximize Layout</td>
+                                            <td>Switch to maximized layout (one window)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + n</kbd></td>
+                                            <td>Reset Layout</td>
+                                            <td>Reset current layout to default</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3>Window Resizing</h3>
+                            <div class="keybinding-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Keybinding</th>
+                                            <th>Action</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><kbd>Super + Ctrl + h</kbd></td>
+                                            <td>Shrink Left</td>
+                                            <td>Make window smaller horizontally (left)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Ctrl + l</kbd></td>
+                                            <td>Grow Right</td>
+                                            <td>Make window larger horizontally (right)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Ctrl + j</kbd></td>
+                                            <td>Shrink Down</td>
+                                            <td>Make window smaller vertically (down)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Ctrl + k</kbd></td>
+                                            <td>Grow Up</td>
+                                            <td>Make window larger vertically (up)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <section id="navigation" class="docs-section">
+                            <h2><i class="fas fa-arrows-alt"></i> Window Navigation</h2>
+                            
+                            <div class="keybinding-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Keybinding</th>
+                                            <th>Action</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><kbd>Super + h</kbd></td>
+                                            <td>Focus Left</td>
+                                            <td>Move focus to window on the left</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + j</kbd></td>
+                                            <td>Focus Down</td>
+                                            <td>Move focus to window below</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + k</kbd></td>
+                                            <td>Focus Up</td>
+                                            <td>Move focus to window above</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + l</kbd></td>
+                                            <td>Focus Right</td>
+                                            <td>Move focus to window on the right</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Alt + Tab</kbd></td>
+                                            <td>Next Window</td>
+                                            <td>Cycle to next window in current group</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Alt + Shift + Tab</kbd></td>
+                                            <td>Previous Window</td>
+                                            <td>Cycle to previous window in current group</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3>Window Movement</h3>
+                            <div class="keybinding-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Keybinding</th>
+                                            <th>Action</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><kbd>Super + Shift + h</kbd></td>
+                                            <td>Move Left</td>
+                                            <td>Move current window left</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Shift + j</kbd></td>
+                                            <td>Move Down</td>
+                                            <td>Move current window down</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Shift + k</kbd></td>
+                                            <td>Move Up</td>
+                                            <td>Move current window up</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Shift + l</kbd></td>
+                                            <td>Move Right</td>
+                                            <td>Move current window right</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <section id="groups" class="docs-section">
+                            <h2><i class="fas fa-th-list"></i> Groups & Workspaces</h2>
+                            
+                            <div class="keybinding-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Keybinding</th>
+                                            <th>Action</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><kbd>Super + 1</kbd> to <kbd>Super + 9</kbd></td>
+                                            <td>Switch to Group</td>
+                                            <td>Switch to group/workspace 1-9</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Tab</kbd></td>
+                                            <td>Next Group</td>
+                                            <td>Switch to next group</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Shift + Tab</kbd></td>
+                                            <td>Previous Group</td>
+                                            <td>Switch to previous group</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Shift + 1</kbd> to <kbd>Super + Shift + 9</kbd></td>
+                                            <td>Move to Group</td>
+                                            <td>Move current window to group 1-9</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Ctrl + Shift + h</kbd></td>
+                                            <td>Move to Previous Group</td>
+                                            <td>Move window to previous group</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Ctrl + Shift + l</kbd></td>
+                                            <td>Move to Next Group</td>
+                                            <td>Move window to next group</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <section id="layouts" class="docs-section">
+                            <h2><i class="fas fa-th-large"></i> Layout Management</h2>
+                            
+                            <div class="keybinding-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Keybinding</th>
+                                            <th>Action</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><kbd>Super + Space</kbd></td>
+                                            <td>Next Layout</td>
+                                            <td>Switch to next layout algorithm</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Shift + Space</kbd></td>
+                                            <td>Previous Layout</td>
+                                            <td>Switch to previous layout algorithm</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + i</kbd></td>
+                                            <td>Increase Master</td>
+                                            <td>Increase number of master windows</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + d</kbd></td>
+                                            <td>Decrease Master</td>
+                                            <td>Decrease number of master windows</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Shift + Return</kbd></td>
+                                            <td>Promote Master</td>
+                                            <td>Move current window to master position</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <section id="applications" class="docs-section">
+                            <h2><i class="fas fa-rocket"></i> Application Launchers</h2>
+                            
+                            <div class="keybinding-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Keybinding</th>
+                                            <th>Action</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><kbd>Super + Return</kbd></td>
+                                            <td>Terminal</td>
+                                            <td>Open Alacritty terminal</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + r</kbd></td>
+                                            <td>App Launcher</td>
+                                            <td>Open Rofi application launcher</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + w</kbd></td>
+                                            <td>Web Browser</td>
+                                            <td>Open Firefox web browser</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + e</kbd></td>
+                                            <td>File Manager</td>
+                                            <td>Open Thunar file manager</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + v</kbd></td>
+                                            <td>Text Editor</td>
+                                            <td>Open text editor (Neovim/Code)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + p</kbd></td>
+                                            <td>Run Menu</td>
+                                            <td>Open dmenu run dialog</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3>Quick Applications</h3>
+                            <div class="keybinding-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Keybinding</th>
+                                            <th>Action</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><kbd>Super + Shift + w</kbd></td>
+                                            <td>Private Browser</td>
+                                            <td>Open Firefox in private mode</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Shift + e</kbd></td>
+                                            <td>Admin File Manager</td>
+                                            <td>Open file manager as administrator</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + t</kbd></td>
+                                            <td>Task Manager</td>
+                                            <td>Open system monitor (htop)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Shift + c</kbd></td>
+                                            <td>Calendar</td>
+                                            <td>Open calendar application</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <section id="system" class="docs-section">
+                            <h2><i class="fas fa-cog"></i> System Controls</h2>
+                            
+                            <div class="keybinding-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Keybinding</th>
+                                            <th>Action</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><kbd>Super + Ctrl + r</kbd></td>
+                                            <td>Restart Qtile</td>
+                                            <td>Restart window manager (reload config)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Ctrl + q</kbd></td>
+                                            <td>Quit Qtile</td>
+                                            <td>Exit window manager (logout)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Escape</kbd></td>
+                                            <td>Lock Screen</td>
+                                            <td>Lock the screen with screensaver</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Shift + Escape</kbd></td>
+                                            <td>Power Menu</td>
+                                            <td>Open power management menu</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + b</kbd></td>
+                                            <td>Toggle Bar</td>
+                                            <td>Hide/show the status bar</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Ctrl + Alt + Del</kbd></td>
+                                            <td>Task Manager</td>
+                                            <td>Open system task manager</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <section id="media" class="docs-section">
+                            <h2><i class="fas fa-volume-up"></i> Media Controls</h2>
+                            
+                            <div class="keybinding-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Keybinding</th>
+                                            <th>Action</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><kbd>XF86AudioRaiseVolume</kbd></td>
+                                            <td>Volume Up</td>
+                                            <td>Increase system volume by 5%</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>XF86AudioLowerVolume</kbd></td>
+                                            <td>Volume Down</td>
+                                            <td>Decrease system volume by 5%</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>XF86AudioMute</kbd></td>
+                                            <td>Mute Toggle</td>
+                                            <td>Mute/unmute system audio</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>XF86AudioPlay</kbd></td>
+                                            <td>Play/Pause</td>
+                                            <td>Toggle media playback</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>XF86AudioNext</kbd></td>
+                                            <td>Next Track</td>
+                                            <td>Skip to next media track</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>XF86AudioPrev</kbd></td>
+                                            <td>Previous Track</td>
+                                            <td>Go to previous media track</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3>Brightness Controls</h3>
+                            <div class="keybinding-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Keybinding</th>
+                                            <th>Action</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><kbd>XF86MonBrightnessUp</kbd></td>
+                                            <td>Brightness Up</td>
+                                            <td>Increase screen brightness</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>XF86MonBrightnessDown</kbd></td>
+                                            <td>Brightness Down</td>
+                                            <td>Decrease screen brightness</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + F5</kbd></td>
+                                            <td>Brightness Down</td>
+                                            <td>Decrease brightness (alternative)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + F6</kbd></td>
+                                            <td>Brightness Up</td>
+                                            <td>Increase brightness (alternative)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <section id="screenshots" class="docs-section">
+                            <h2><i class="fas fa-camera"></i> Screenshots</h2>
+                            
+                            <div class="keybinding-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Keybinding</th>
+                                            <th>Action</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><kbd>Print</kbd></td>
+                                            <td>Full Screen</td>
+                                            <td>Screenshot entire screen</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Shift + Print</kbd></td>
+                                            <td>Selection</td>
+                                            <td>Screenshot selected area</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Ctrl + Print</kbd></td>
+                                            <td>Current Window</td>
+                                            <td>Screenshot active window</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Alt + Print</kbd></td>
+                                            <td>Delayed Screenshot</td>
+                                            <td>Screenshot with 3-second delay</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Shift + s</kbd></td>
+                                            <td>Interactive Screenshot</td>
+                                            <td>Open screenshot tool (Flameshot)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <section id="scratchpads" class="docs-section">
+                            <h2><i class="fas fa-terminal"></i> Scratchpads</h2>
+                            
+                            <div class="keybinding-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Keybinding</th>
+                                            <th>Action</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><kbd>Super + grave (`)</kbd></td>
+                                            <td>Scratchpad Terminal</td>
+                                            <td>Toggle dropdown terminal</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Shift + grave</kbd></td>
+                                            <td>Python REPL</td>
+                                            <td>Toggle Python interpreter scratchpad</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + c</kbd></td>
+                                            <td>Calculator</td>
+                                            <td>Toggle calculator scratchpad</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Shift + m</kbd></td>
+                                            <td>Music Player</td>
+                                            <td>Toggle music player scratchpad</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + z</kbd></td>
+                                            <td>Notes</td>
+                                            <td>Toggle quick notes scratchpad</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <section id="mouse" class="docs-section">
+                            <h2><i class="fas fa-mouse-pointer"></i> Mouse Actions</h2>
+                            
+                            <div class="keybinding-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Mouse Action</th>
+                                            <th>Function</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><kbd>Super + Left Click</kbd></td>
+                                            <td>Move Window</td>
+                                            <td>Drag to move floating window</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Right Click</kbd></td>
+                                            <td>Resize Window</td>
+                                            <td>Drag to resize floating window</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Middle Click</kbd></td>
+                                            <td>Toggle Floating</td>
+                                            <td>Switch window between tiling/floating</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Super + Scroll Up/Down</kbd></td>
+                                            <td>Change Layout</td>
+                                            <td>Cycle through available layouts</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Click on Group</kbd></td>
+                                            <td>Switch Group</td>
+                                            <td>Switch to clicked group/workspace</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>Right Click on Group</kbd></td>
+                                            <td>Group Menu</td>
+                                            <td>Open group context menu</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <div class="customization-section">
+                            <h2><i class="fas fa-wrench"></i> Customization</h2>
+                            <p>
+                                All keybindings can be customized by editing <code>~/.config/qtile/settings/keys.py</code>. 
+                                The modular configuration makes it easy to add, modify, or remove shortcuts to fit your workflow.
+                            </p>
+
+                            <div class="alert alert-warning">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <div>
+                                    <strong>Important:</strong> After modifying keybindings, restart Qtile with 
+                                    <kbd>Super + Ctrl + r</kbd> to apply changes.
+                                </div>
+                            </div>
+
+                            <div class="code-block">
+                                <h4>Example: Adding Custom Keybinding</h4>
+                                <pre><code># In ~/.config/qtile/settings/keys.py
+Key([mod], "o", lazy.spawn("obsidian"), desc="Open Obsidian"),
+Key([mod, "shift"], "p", lazy.spawn("pavucontrol"), desc="Audio settings"),</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="docs-footer">
+                            <div class="docs-nav-buttons">
+                                <a href="qtile-mastery.html" class="btn btn-secondary">
+                                    <i class="fas fa-arrow-left"></i>
+                                    Qtile Mastery
+                                </a>
+                                <a href="customization-guide.html" class="btn btn-primary">
+                                    Customization Guide
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../assets/images/kyos.png" alt="KyOS Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">KyOS</span>
+                    </div>
+                    <p class="footer-description">
+                        Dragon Arch - A powerful, elegant, and unstoppable Linux distribution 
+                        built for developers, security professionals, and power users.
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2024 KyOS (Dragon Arch). Open source under MIT License.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Search functionality for keybindings
+        document.getElementById('keybinding-search').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const tables = document.querySelectorAll('.keybinding-table table tbody tr');
+            
+            tables.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

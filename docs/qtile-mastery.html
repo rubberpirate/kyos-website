@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qtile Mastery Guide - KyOS Documentation</title>
+    <meta name="description" content="Master the Qtile window manager in KyOS. From basic navigation to advanced Python configuration and custom layouts.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/images/kyos.png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../assets/images/kyos.png" alt="KyOS Logo" class="logo-img">
+                <span class="logo-text">KyOS</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#features" class="nav-link">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#download" class="nav-link">Download</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../index.html#docs" class="nav-link">Docs</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Documentation Content -->
+    <section class="docs-content">
+        <div class="container">
+            <div class="docs-layout">
+                <aside class="docs-sidebar">
+                    <h3>Navigation</h3>
+                    <nav class="docs-nav">
+                        <a href="#introduction" class="docs-nav-link">What is Qtile?</a>
+                        <a href="#philosophy" class="docs-nav-link">Design Philosophy</a>
+                        <a href="#navigation" class="docs-nav-link">Navigation Basics</a>
+                        <a href="#groups" class="docs-nav-link">Groups & Workspaces</a>
+                        <a href="#layouts" class="docs-nav-link">Layouts</a>
+                        <a href="#keybindings" class="docs-nav-link">Keybindings</a>
+                        <a href="#configuration" class="docs-nav-link">Configuration</a>
+                        <a href="#widgets" class="docs-nav-link">Widgets & Bar</a>
+                        <a href="#advanced" class="docs-nav-link">Advanced Features</a>
+                        <a href="#customization" class="docs-nav-link">Customization</a>
+                    </nav>
+
+                    <div class="docs-quick-links">
+                        <h4>Quick Reference</h4>
+                        <a href="keybindings-reference.html">Complete Keybindings</a>
+                        <a href="customization-guide.html">Customization Guide</a>
+                        <a href="https://docs.qtile.org/" target="_blank">Official Qtile Docs</a>
+                    </div>
+                </aside>
+                
+                <main class="docs-main">
+                    <div class="docs-header">
+                        <h1>Qtile Mastery Guide</h1>
+                        <p class="docs-subtitle">Master the Python-powered tiling window manager</p>
+                    </div>
+
+                    <div class="docs-content-body">
+                        <section id="introduction" class="docs-section">
+                            <h2>What is Qtile?</h2>
+                            <p>
+                                Qtile is a full-featured, hackable tiling window manager written and configured 
+                                in Python. Unlike other window managers that use cryptic configuration files, 
+                                Qtile leverages the power and clarity of Python for configuration.
+                            </p>
+
+                            <div class="alert alert-info">
+                                <i class="fas fa-code"></i>
+                                <div>
+                                    <strong>Python Power:</strong>
+                                    Since Qtile is configured in Python, you have access to the full Python 
+                                    ecosystem for creating dynamic, intelligent window management behaviors.
+                                </div>
+                            </div>
+
+                            <h3>Key Advantages</h3>
+                            <ul class="feature-list">
+                                <li><strong>Python Configuration:</strong> Readable, powerful configuration language</li>
+                                <li><strong>Extensible:</strong> Easy to write custom layouts, widgets, and commands</li>
+                                <li><strong>Multiple Monitors:</strong> Excellent multi-monitor support</li>
+                                <li><strong>Flexible Layouts:</strong> Multiple tiling algorithms and floating support</li>
+                                <li><strong>Rich Widget System:</strong> Customizable status bar with many widgets</li>
+                                <li><strong>Dynamic:</strong> Runtime reconfiguration without restart</li>
+                            </ul>
+                        </section>
+
+                        <section id="philosophy" class="docs-section">
+                            <h2>Design Philosophy</h2>
+                            
+                            <h3>Tiling Window Management</h3>
+                            <p>
+                                Tiling window managers automatically arrange windows to make full use of screen 
+                                real estate. Instead of overlapping windows, each window gets a portion of the 
+                                screen based on the current layout algorithm.
+                            </p>
+
+                            <div class="philosophy-grid">
+                                <div class="philosophy-card">
+                                    <h4><i class="fas fa-keyboard"></i> Keyboard-Driven</h4>
+                                    <p>Optimized for keyboard navigation. Mouse usage is optional.</p>
+                                </div>
+                                <div class="philosophy-card">
+                                    <h4><i class="fas fa-layer-group"></i> Efficient Space Usage</h4>
+                                    <p>No wasted screen space. Every pixel serves a purpose.</p>
+                                </div>
+                                <div class="philosophy-card">
+                                    <h4><i class="fas fa-cogs"></i> Scriptable</h4>
+                                    <p>Everything can be automated and customized through Python.</p>
+                                </div>
+                                <div class="philosophy-card">
+                                    <h4><i class="fas fa-tachometer-alt"></i> Performance</h4>
+                                    <p>Minimal resource usage with maximum functionality.</p>
+                                </div>
+                            </div>
+
+                            <h3>Qtile vs Other Window Managers</h3>
+                            <div class="comparison-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Feature</th>
+                                            <th>Qtile</th>
+                                            <th>i3/Sway</th>
+                                            <th>Awesome</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Configuration</td>
+                                            <td>Python</td>
+                                            <td>Config file</td>
+                                            <td>Lua</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Learning Curve</td>
+                                            <td>Moderate</td>
+                                            <td>Easy</td>
+                                            <td>Steep</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Extensibility</td>
+                                            <td>Excellent</td>
+                                            <td>Limited</td>
+                                            <td>Excellent</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Performance</td>
+                                            <td>Good</td>
+                                            <td>Excellent</td>
+                                            <td>Good</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <section id="navigation" class="docs-section">
+                            <h2>Navigation Basics</h2>
+                            
+                            <h3>Window Focus</h3>
+                            <p>
+                                Moving focus between windows is the most fundamental navigation skill in Qtile. 
+                                KyOS uses Vim-like keybindings for intuitive navigation.
+                            </p>
+
+                            <div class="keybinding-section">
+                                <h4>Basic Navigation</h4>
+                                <div class="keybinding-grid">
+                                    <div class="keybinding">
+                                        <kbd>Super + h</kbd>
+                                        <span>Focus window to the left</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + j</kbd>
+                                        <span>Focus window below</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + k</kbd>
+                                        <span>Focus window above</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + l</kbd>
+                                        <span>Focus window to the right</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3>Window Movement</h3>
+                            <p>
+                                Moving windows changes their position in the layout without changing focus.
+                            </p>
+
+                            <div class="keybinding-section">
+                                <h4>Moving Windows</h4>
+                                <div class="keybinding-grid">
+                                    <div class="keybinding">
+                                        <kbd>Super + Shift + h</kbd>
+                                        <span>Move window left</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + Shift + j</kbd>
+                                        <span>Move window down</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + Shift + k</kbd>
+                                        <span>Move window up</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + Shift + l</kbd>
+                                        <span>Move window right</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3>Window Resizing</h3>
+                            <p>
+                                Resize windows to give more space to important applications.
+                            </p>
+
+                            <div class="keybinding-section">
+                                <h4>Resizing Windows</h4>
+                                <div class="keybinding-grid">
+                                    <div class="keybinding">
+                                        <kbd>Super + Ctrl + h</kbd>
+                                        <span>Shrink window horizontally</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + Ctrl + l</kbd>
+                                        <span>Grow window horizontally</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + Ctrl + j</kbd>
+                                        <span>Shrink window vertically</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + Ctrl + k</kbd>
+                                        <span>Grow window vertically</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="groups" class="docs-section">
+                            <h2>Groups & Workspaces</h2>
+                            
+                            <h3>Understanding Groups</h3>
+                            <p>
+                                Groups in Qtile are equivalent to workspaces in other window managers. 
+                                They allow you to organize windows logically and switch between different 
+                                sets of applications quickly.
+                            </p>
+
+                            <div class="alert alert-success">
+                                <i class="fas fa-lightbulb"></i>
+                                <div>
+                                    <strong>Pro Tip:</strong>
+                                    Use groups to separate different types of work. For example, Group 1 for 
+                                    web browsing, Group 2 for development, Group 3 for communication, etc.
+                                </div>
+                            </div>
+
+                            <h3>Group Navigation</h3>
+                            <div class="keybinding-section">
+                                <h4>Switching Groups</h4>
+                                <div class="keybinding-grid">
+                                    <div class="keybinding">
+                                        <kbd>Super + 1-9</kbd>
+                                        <span>Switch to group 1-9</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + Tab</kbd>
+                                        <span>Switch to next group</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + Shift + Tab</kbd>
+                                        <span>Switch to previous group</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3>Moving Windows Between Groups</h3>
+                            <div class="keybinding-section">
+                                <h4>Window Group Management</h4>
+                                <div class="keybinding-grid">
+                                    <div class="keybinding">
+                                        <kbd>Super + Shift + 1-9</kbd>
+                                        <span>Move window to group 1-9</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + Ctrl + Shift + h/l</kbd>
+                                        <span>Move window to prev/next group</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3>Group Configuration</h3>
+                            <p>KyOS comes with pre-configured groups optimized for different workflows:</p>
+                            
+                            <div class="groups-grid">
+                                <div class="group-card">
+                                    <h4>Group 1: Main</h4>
+                                    <p>Primary workspace for general tasks</p>
+                                    <span class="group-icon"><i class="fas fa-home"></i></span>
+                                </div>
+                                <div class="group-card">
+                                    <h4>Group 2: Web</h4>
+                                    <p>Web browsing and research</p>
+                                    <span class="group-icon"><i class="fas fa-globe"></i></span>
+                                </div>
+                                <div class="group-card">
+                                    <h4>Group 3: Code</h4>
+                                    <p>Development and coding</p>
+                                    <span class="group-icon"><i class="fas fa-code"></i></span>
+                                </div>
+                                <div class="group-card">
+                                    <h4>Group 4: Terminal</h4>
+                                    <p>Command line and system tasks</p>
+                                    <span class="group-icon"><i class="fas fa-terminal"></i></span>
+                                </div>
+                                <div class="group-card">
+                                    <h4>Group 5: Media</h4>
+                                    <p>Media playback and entertainment</p>
+                                    <span class="group-icon"><i class="fas fa-play"></i></span>
+                                </div>
+                                <div class="group-card">
+                                    <h4>Group 6: Communication</h4>
+                                    <p>Chat, email, and social</p>
+                                    <span class="group-icon"><i class="fas fa-comments"></i></span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="layouts" class="docs-section">
+                            <h2>Layouts</h2>
+                            
+                            <h3>Available Layouts</h3>
+                            <p>
+                                Qtile provides multiple layout algorithms. Each layout organizes windows 
+                                differently to suit various workflow needs.
+                            </p>
+
+                            <div class="layouts-grid">
+                                <div class="layout-card">
+                                    <h4><i class="fas fa-th-large"></i> MonadTall</h4>
+                                    <p>Master window on left, stack on right. Perfect for coding.</p>
+                                    <div class="layout-diagram">
+                                        <div class="layout-visual monadtall">
+                                            <div class="window master">Master</div>
+                                            <div class="window stack">Stack 1</div>
+                                            <div class="window stack">Stack 2</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="layout-card">
+                                    <h4><i class="fas fa-window-maximize"></i> Max</h4>
+                                    <p>One window at a time, maximized. Like traditional windowing.</p>
+                                    <div class="layout-diagram">
+                                        <div class="layout-visual max">
+                                            <div class="window fullscreen">Maximized Window</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="layout-card">
+                                    <h4><i class="fas fa-th"></i> Tile</h4>
+                                    <p>Dynamic tiling that adjusts to window count automatically.</p>
+                                    <div class="layout-diagram">
+                                        <div class="layout-visual tile">
+                                            <div class="window">1</div>
+                                            <div class="window">2</div>
+                                            <div class="window">3</div>
+                                            <div class="window">4</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="layout-card">
+                                    <h4><i class="fas fa-stream"></i> Columns</h4>
+                                    <p>Vertical columns of windows, great for wide screens.</p>
+                                    <div class="layout-diagram">
+                                        <div class="layout-visual columns">
+                                            <div class="window col">Col 1</div>
+                                            <div class="window col">Col 2</div>
+                                            <div class="window col">Col 3</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3>Layout Controls</h3>
+                            <div class="keybinding-section">
+                                <h4>Layout Management</h4>
+                                <div class="keybinding-grid">
+                                    <div class="keybinding">
+                                        <kbd>Super + Space</kbd>
+                                        <span>Switch to next layout</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + Shift + Space</kbd>
+                                        <span>Switch to previous layout</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + n</kbd>
+                                        <span>Reset layout to default</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + m</kbd>
+                                        <span>Toggle maximize layout</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3>Floating Windows</h3>
+                            <p>
+                                Some applications work better as floating windows (like dialogs, calculators, etc.).
+                            </p>
+
+                            <div class="keybinding-section">
+                                <h4>Floating Controls</h4>
+                                <div class="keybinding-grid">
+                                    <div class="keybinding">
+                                        <kbd>Super + Shift + f</kbd>
+                                        <span>Toggle floating mode</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + f</kbd>
+                                        <span>Toggle fullscreen</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + Mouse Drag</kbd>
+                                        <span>Move floating window</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + Right Click Drag</kbd>
+                                        <span>Resize floating window</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="keybindings" class="docs-section">
+                            <h2>Complete Keybindings Reference</h2>
+                            
+                            <h3>Application Launchers</h3>
+                            <div class="keybinding-section">
+                                <div class="keybinding-grid">
+                                    <div class="keybinding">
+                                        <kbd>Super + Return</kbd>
+                                        <span>Open terminal (Alacritty)</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + r</kbd>
+                                        <span>Application launcher (Rofi)</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + w</kbd>
+                                        <span>Web browser (Firefox)</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + e</kbd>
+                                        <span>File manager (Thunar)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3>System Controls</h3>
+                            <div class="keybinding-section">
+                                <div class="keybinding-grid">
+                                    <div class="keybinding">
+                                        <kbd>Super + Ctrl + r</kbd>
+                                        <span>Restart Qtile</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + Ctrl + q</kbd>
+                                        <span>Quit Qtile</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + q</kbd>
+                                        <span>Close window</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + Shift + q</kbd>
+                                        <span>Force close window</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3>Audio and Brightness</h3>
+                            <div class="keybinding-section">
+                                <div class="keybinding-grid">
+                                    <div class="keybinding">
+                                        <kbd>XF86AudioRaiseVolume</kbd>
+                                        <span>Increase volume</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>XF86AudioLowerVolume</kbd>
+                                        <span>Decrease volume</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>XF86AudioMute</kbd>
+                                        <span>Mute/unmute audio</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>XF86MonBrightnessUp</kbd>
+                                        <span>Increase brightness</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3>Screenshots</h3>
+                            <div class="keybinding-section">
+                                <div class="keybinding-grid">
+                                    <div class="keybinding">
+                                        <kbd>Print</kbd>
+                                        <span>Screenshot full screen</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Shift + Print</kbd>
+                                        <span>Screenshot selection</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Ctrl + Print</kbd>
+                                        <span>Screenshot current window</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle"></i>
+                                <div>
+                                    <strong>Custom Keybindings:</strong>
+                                    All keybindings can be customized in <code>~/.config/qtile/config.py</code>. 
+                                    See the <a href="keybindings-reference.html">complete keybindings reference</a> for all available shortcuts.
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="configuration" class="docs-section">
+                            <h2>Configuration Structure</h2>
+                            
+                            <h3>Configuration Files</h3>
+                            <p>
+                                KyOS organizes Qtile configuration in a modular structure for easy customization:
+                            </p>
+
+                            <div class="code-block">
+                                <pre><code>~/.config/qtile/
+├── config.py              # Main configuration file
+├── settings/
+│   ├── keys.py           # Keybinding definitions
+│   ├── groups.py         # Group configuration
+│   ├── layouts.py        # Layout settings
+│   ├── widgets.py        # Status bar widgets
+│   ├── mouse.py          # Mouse bindings
+│   └── rules.py          # Window rules
+├── themes/
+│   ├── dragon_dark.py    # Default dark theme
+│   ├── dragon_light.py   # Light theme variant
+│   └── custom.py         # Your custom theme
+└── scripts/
+    ├── autostart.sh      # Startup applications
+    └── wallpaper.py      # Wallpaper management</code></pre>
+                            </div>
+
+                            <h3>Basic Configuration Editing</h3>
+                            <p>
+                                The main configuration file imports settings from the modular structure:
+                            </p>
+
+                            <div class="code-block">
+                                <h4>Main Config Structure (config.py)</h4>
+                                <pre><code>from libqtile import bar, layout, widget
+from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.lazy import lazy
+
+# Import KyOS modules
+from settings.keys import keys
+from settings.groups import groups
+from settings.layouts import layouts, floating_layout
+from settings.widgets import widget_defaults, screens
+from settings.mouse import mouse
+from settings.rules import dgroups_app_rules
+from themes.dragon_dark import colors
+
+# Configuration variables
+mod = "mod4"  # Super key
+terminal = "alacritty"
+browser = "firefox"</code></pre>
+                            </div>
+
+                            <h3>Customizing Keybindings</h3>
+                            <p>
+                                Add custom keybindings by editing <code>settings/keys.py</code>:
+                            </p>
+
+                            <div class="code-block">
+                                <h4>Adding Custom Keys</h4>
+                                <pre><code># In settings/keys.py
+from libqtile.config import Key
+from libqtile.lazy import lazy
+
+# Add your custom keybindings to the keys list
+Key([mod], "p", lazy.spawn("rofi -show drun"), desc="Run launcher"),
+Key([mod, "shift"], "s", lazy.spawn("flameshot gui"), desc="Screenshot"),
+Key([mod], "b", lazy.hide_show_bar(), desc="Toggle bar"),</code></pre>
+                            </div>
+
+                            <h3>Theme Customization</h3>
+                            <p>
+                                Create your own color scheme by copying and modifying a theme file:
+                            </p>
+
+                            <div class="code-block">
+                                <h4>Custom Theme (themes/custom.py)</h4>
+                                <pre><code># Custom color scheme
+colors = {
+    "bg": "#1e1e2e",           # Background
+    "fg": "#cdd6f4",           # Foreground
+    "primary": "#89b4fa",      # Primary accent
+    "secondary": "#f38ba8",    # Secondary accent
+    "alert": "#f38ba8",        # Alert/error
+    "panel": "#181825",        # Panel background
+    "border": "#45475a",       # Window borders
+    "active": "#89b4fa",       # Active elements
+    "inactive": "#6c7086",     # Inactive elements
+}</code></pre>
+                            </div>
+                        </section>
+
+                        <section id="widgets" class="docs-section">
+                            <h2>Widgets & Status Bar</h2>
+                            
+                            <h3>Default Widget Layout</h3>
+                            <p>
+                                KyOS includes a carefully designed status bar with essential information widgets:
+                            </p>
+
+                            <div class="widgets-preview">
+                                <div class="bar-mockup">
+                                    <div class="widget-group left">
+                                        <span class="widget">Groups</span>
+                                        <span class="widget">Window Name</span>
+                                    </div>
+                                    <div class="widget-group right">
+                                        <span class="widget">Updates</span>
+                                        <span class="widget">Volume</span>
+                                        <span class="widget">Network</span>
+                                        <span class="widget">Battery</span>
+                                        <span class="widget">Clock</span>
+                                        <span class="widget">Systray</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3>Available Widgets</h3>
+                            <div class="widgets-grid">
+                                <div class="widget-card">
+                                    <h4><i class="fas fa-list"></i> GroupBox</h4>
+                                    <p>Shows current groups/workspaces with indicators</p>
+                                </div>
+                                <div class="widget-card">
+                                    <h4><i class="fas fa-window-restore"></i> WindowName</h4>
+                                    <p>Displays the title of the current window</p>
+                                </div>
+                                <div class="widget-card">
+                                    <h4><i class="fas fa-volume-up"></i> Volume</h4>
+                                    <p>Shows current audio volume level</p>
+                                </div>
+                                <div class="widget-card">
+                                    <h4><i class="fas fa-wifi"></i> Wlan</h4>
+                                    <p>Network connection status and signal strength</p>
+                                </div>
+                                <div class="widget-card">
+                                    <h4><i class="fas fa-battery-half"></i> Battery</h4>
+                                    <p>Battery level and charging status</p>
+                                </div>
+                                <div class="widget-card">
+                                    <h4><i class="fas fa-clock"></i> Clock</h4>
+                                    <p>Current time and date</p>
+                                </div>
+                                <div class="widget-card">
+                                    <h4><i class="fas fa-tray-arrow-up"></i> Systray</h4>
+                                    <p>System tray for background applications</p>
+                                </div>
+                                <div class="widget-card">
+                                    <h4><i class="fas fa-download"></i> CheckUpdates</h4>
+                                    <p>Shows available package updates</p>
+                                </div>
+                            </div>
+
+                            <h3>Adding Custom Widgets</h3>
+                            <p>
+                                You can add more widgets or create custom ones. Here are some popular additions:
+                            </p>
+
+                            <div class="code-block">
+                                <h4>Custom Widget Examples</h4>
+                                <pre><code># CPU usage widget
+widget.CPU(
+    format="CPU: {load_percent}%",
+    foreground=colors["fg"],
+    background=colors["bg"],
+),
+
+# Memory usage widget
+widget.Memory(
+    format="RAM: {MemUsed:.0f}M",
+    foreground=colors["fg"],
+    background=colors["bg"],
+),
+
+# Weather widget
+widget.OpenWeather(
+    location="Your City",
+    format="{main_temp}°{units_temperature}",
+    foreground=colors["fg"],
+    background=colors["bg"],
+),</code></pre>
+                            </div>
+
+                            <h3>Customizing Widget Appearance</h3>
+                            <p>
+                                Widgets can be styled with colors, fonts, and decorations:
+                            </p>
+
+                            <div class="code-block">
+                                <h4>Widget Styling</h4>
+                                <pre><code># Styled clock widget
+widget.Clock(
+    format="%Y-%m-%d %a %I:%M %p",
+    foreground=colors["primary"],
+    background=colors["panel"],
+    fontsize=12,
+    padding=10,
+    decorations=[
+        BorderDecoration(
+            colour=colors["border"],
+            border_width=[0, 0, 2, 0],
+        )
+    ],
+),</code></pre>
+                            </div>
+                        </section>
+
+                        <section id="advanced" class="docs-section">
+                            <h2>Advanced Features</h2>
+                            
+                            <h3>Scratchpads</h3>
+                            <p>
+                                Scratchpads are special floating windows that can be quickly summoned and hidden. 
+                                Perfect for terminals, calculators, or music players.
+                            </p>
+
+                            <div class="code-block">
+                                <h4>Scratchpad Configuration</h4>
+                                <pre><code># In settings/groups.py
+from libqtile.config import ScratchPad, DropDown
+
+scratchpads = [
+    ScratchPad("scratchpad", [
+        DropDown("term", "alacritty --class=scratchpad",
+                width=0.8, height=0.8, x=0.1, y=0.1, opacity=0.9),
+        DropDown("calc", "qalculate-gtk",
+                width=0.4, height=0.6, x=0.3, y=0.2),
+    ]),
+]</code></pre>
+                            </div>
+
+                            <div class="keybinding-section">
+                                <h4>Scratchpad Controls</h4>
+                                <div class="keybinding-grid">
+                                    <div class="keybinding">
+                                        <kbd>Super + grave</kbd>
+                                        <span>Toggle scratchpad terminal</span>
+                                    </div>
+                                    <div class="keybinding">
+                                        <kbd>Super + c</kbd>
+                                        <span>Toggle calculator</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3>Window Rules</h3>
+                            <p>
+                                Automatically manage window behavior based on application class, title, or other properties:
+                            </p>
+
+                            <div class="code-block">
+                                <h4>Window Rules Examples</h4>
+                                <pre><code># In settings/rules.py
+dgroups_app_rules = [
+    # Web browsers to group 2
+    Rule(Match(wm_class="firefox"), group="2"),
+    Rule(Match(wm_class="chromium"), group="2"),
+    
+    # Development tools to group 3
+    Rule(Match(wm_class="code"), group="3"),
+    Rule(Match(wm_class="Code"), group="3"),
+    
+    # Media applications to group 5
+    Rule(Match(wm_class="vlc"), group="5"),
+    Rule(Match(wm_class="spotify"), group="5"),
+    
+    # Float certain windows
+    Rule(Match(title="Volume Control"), float=True),
+    Rule(Match(wm_class="Pavucontrol"), float=True),
+]</code></pre>
+                            </div>
+
+                            <h3>Multi-Monitor Setup</h3>
+                            <p>
+                                Qtile excels at multi-monitor setups. Configure different wallpapers, 
+                                widgets, and groups for each screen:
+                            </p>
+
+                            <div class="code-block">
+                                <h4>Multi-Monitor Configuration</h4>
+                                <pre><code># In settings/widgets.py
+screens = [
+    # Primary screen
+    Screen(
+        top=bar.Bar([
+            # Full widget set for main screen
+            widget.GroupBox(), widget.WindowName(),
+            widget.Volume(), widget.Clock(),
+        ], 24),
+        wallpaper="~/.config/qtile/wallpapers/primary.jpg",
+    ),
+    # Secondary screen
+    Screen(
+        top=bar.Bar([
+            # Minimal widgets for secondary screen
+            widget.GroupBox(), widget.Clock(),
+        ], 24),
+        wallpaper="~/.config/qtile/wallpapers/secondary.jpg",
+    ),
+]</code></pre>
+                            </div>
+
+                            <h3>Custom Commands</h3>
+                            <p>
+                                Create custom commands and bind them to keys for advanced automation:
+                            </p>
+
+                            <div class="code-block">
+                                <h4>Custom Command Example</h4>
+                                <pre><code># Custom function to toggle between light/dark theme
+@lazy.function
+def toggle_theme(qtile):
+    current_theme = qtile.current_screen.top.widgets[0].background
+    if current_theme == colors_dark["bg"]:
+        # Switch to light theme
+        reload_config_with_theme("light")
+    else:
+        # Switch to dark theme
+        reload_config_with_theme("dark")
+
+# Bind to key
+Key([mod, "shift"], "t", toggle_theme, desc="Toggle theme"),</code></pre>
+                            </div>
+                        </section>
+
+                        <section id="customization" class="docs-section">
+                            <h2>Advanced Customization</h2>
+                            
+                            <h3>Creating Custom Layouts</h3>
+                            <p>
+                                For ultimate control, you can create entirely custom layouts:
+                            </p>
+
+                            <div class="code-block">
+                                <h4>Custom Layout Example</h4>
+                                <pre><code>from libqtile.layout.base import Layout
+
+class CustomLayout(Layout):
+    def __init__(self, **config):
+        Layout.__init__(self, **config)
+        self.clients = []
+    
+    def add(self, client):
+        self.clients.append(client)
+        
+    def remove(self, client):
+        if client in self.clients:
+            self.clients.remove(client)
+    
+    def configure(self, client, screen_rect):
+        # Custom positioning logic here
+        pass</code></pre>
+                            </div>
+
+                            <h3>Widget Development</h3>
+                            <p>
+                                Create custom widgets for specific needs:
+                            </p>
+
+                            <div class="code-block">
+                                <h4>Custom Widget Example</h4>
+                                <pre><code>from libqtile.widget import base
+
+class CustomWidget(base.ThreadPoolText):
+    def __init__(self, **config):
+        base.ThreadPoolText.__init__(self, "", **config)
+        self.add_defaults(base.ThreadPoolText.defaults)
+    
+    def poll(self):
+        # Your custom logic here
+        return "Custom Data"</code></pre>
+                            </div>
+
+                            <h3>Hooks and Events</h3>
+                            <p>
+                                Use hooks to respond to Qtile events automatically:
+                            </p>
+
+                            <div class="code-block">
+                                <h4>Hook Examples</h4>
+                                <pre><code>from libqtile import hook
+
+@hook.subscribe.startup_once
+def start_once():
+    # Run once when Qtile starts
+    subprocess.call(["/home/user/.config/qtile/scripts/autostart.sh"])
+
+@hook.subscribe.client_new
+def new_client(client):
+    # Run when a new window opens
+    if client.name == "Firefox":
+        client.togroup("2")
+
+@hook.subscribe.group_window_add
+def window_added_to_group(group, window):
+    # Run when window is added to group
+    group.cmd_next_layout()</code></pre>
+                            </div>
+
+                            <h3>Performance Optimization</h3>
+                            <p>
+                                Optimize Qtile for better performance:
+                            </p>
+
+                            <ul>
+                                <li><strong>Widget Update Intervals:</strong> Increase update intervals for less critical widgets</li>
+                                <li><strong>Lazy Loading:</strong> Use lazy imports for heavy modules</li>
+                                <li><strong>Minimize Hooks:</strong> Keep hook functions lightweight</li>
+                                <li><strong>Cache Results:</strong> Cache expensive calculations in custom widgets</li>
+                            </ul>
+
+                            <div class="code-block">
+                                <h4>Performance Optimization Example</h4>
+                                <pre><code># Optimize widget update intervals
+widget.Memory(update_interval=5.0),  # Update every 5 seconds
+widget.Net(update_interval=2.0),     # Update every 2 seconds
+
+# Lazy import heavy modules
+def get_weather():
+    import requests  # Import only when needed
+    return requests.get("api_url").json()</code></pre>
+                            </div>
+                        </section>
+
+                        <div class="docs-footer">
+                            <div class="docs-nav-buttons">
+                                <a href="complete-guide.html" class="btn btn-secondary">
+                                    <i class="fas fa-arrow-left"></i>
+                                    Complete Guide
+                                </a>
+                                <a href="customization-guide.html" class="btn btn-primary">
+                                    Customization Guide
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../assets/images/kyos.png" alt="KyOS Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">KyOS</span>
+                    </div>
+                    <p class="footer-description">
+                        Dragon Arch - A powerful, elegant, and unstoppable Linux distribution 
+                        built for developers, security professionals, and power users.
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2024 KyOS (Dragon Arch). Open source under MIT License.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
